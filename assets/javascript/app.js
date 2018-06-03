@@ -49,7 +49,7 @@ var config = {
     }
 
     
-    
+
 
 
 //FUNCTIONS___________________________________________________________
@@ -60,11 +60,35 @@ var config = {
 //     //make the visibility 0 on the other options
 // });
 
+function reset () {
+
+};
+
+function result () {
+    //reveal both player boxes on all screens
+    //print who won in the result box
+    //update wins and losses for both players
+};
+
 //SEQUENCE_____________________________________________________________
 
-//store in firebase (.ref)
-//pull using snapshot
-//update
+//Firebase general sequence to keep in mind:
+    //store in firebase
+    //pull using snapshot
+    //update html
+
+
+
+//Store variables in firebase
+    //if anything changes, reflect that change in the HTML (ex: wins&losses, name, )
+    database.ref().on("value", function(snapshot){
+        var player1win = snapshot.val().player1.win;
+    
+        var player2win = snapshot.val().player2.win;
+    
+    });
+
+
 
 //When user enters their name, remove the input field option from view and greet them with these messages
 $(".send1").on("click", function() {
@@ -83,3 +107,10 @@ $(".send2").on("click", function() {
 
 
 //Figure out whose turn it is, and send another message telling each user whether they are waiting on the other player, or if it is their move.
+
+
+//hide opponent's boxes from each other until result message displayed. 
+
+//display result message
+
+//on next click, clear result box and go back to hiding player box from each other. Game is reset.
