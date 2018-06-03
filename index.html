@@ -5,35 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock, Paper, Scissors, Shoot!</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type = "text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Paytone+One" rel="stylesheet">
+    <link rel="stylesheet" type = "text/css" href="assets/css/style.css">
 </head>
+
 <body>
-    <div class="head">Rock, Paper, Scissors!</div>
 
-    <form name="name">
-            <input type="text" placeholder="Name">
-            <button>Send</button>
-    </form>
+    <h1>Rock, Paper, Scissors!</h1>
 
-    <div>"Hi username. You are Player 1/2."</div>
 
-    <div>"It's your turn" OR "Waiting on nameOfP1/2 to choose."</div>
+<!-- Contains the initial name input form, greeting message addressing the user by their input name, and a constant message about whose turn it is -->
+    <div class="container top">
+  
+        <div class="row">
+            <div class="col-md-6">
+                    <form name="name">
+                        <input type="text" id= "p1-name" placeholder="Enter Name">
+                        <button class="send1">Send</button>
+                    </form>
+            </div>
 
-    <div id="player1"></div>
+            <div class="col-md-6">
+                    <form name="name">
+                        <input type="text" id ="p2-name" placeholder="Enter Name">
+                        <button class="send2">Send</button>
+                    </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row message">
+            <div class="col-md-12">
+                <!-- <p>It's your turn" OR "Waiting on [nameOfP1/P2] to choose.</p> -->
+            </div>
+        </div>
 
-    <div id="result"></div>
+    </div> <!-- Closing container top div -->
 
-    <div id="player2"></div>
+    
 
-    <!-- 
-    box to hold pass messages/activity
-    input box
-    send button -->
-    <input type="text">
-    <button>Send</button>
 
-    <div class="footer"></div>
+    
+<!-- Contains the 3 main display boxes: P1, winner, P2 -->
+
+    <div class="container main">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div id="p1Box">
+                    <!-- user options
+                    user move -->
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div id="winnerBox">
+                    <!-- results of match -->
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div id="p2Box">
+                    <!-- user options
+                    user move -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Chatbox to hold pass messages/activity
+        input box
+        send button -->
+
+    </div> <!-- Closing container main div -->
+
+    
+
+    <div class="footer">
+        KP
+    </div>
+
+<!-- Firebase, JS, JQ BELOW__________________________________________________________- -->
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
     
 </body>
 </html>

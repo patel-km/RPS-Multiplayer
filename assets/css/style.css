@@ -1,0 +1,44 @@
+
+body {
+    font-family: 'Paytone One', sans-serif;
+    color: 	#363636;
+}
+
+h1 {
+    font-family: 'Londrina Outline', cursive;
+    font-size: 40px;
+    padding: 15px;
+    background-color: #00897b;
+    color: white;
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+}
+
+form {
+    padding: 10px;
+}
+p {
+    font-size: 18px;
+}
+
+#p1Box, #p2Box, #winnerBox {
+    height: 300px;
+    border: solid #00897b;
+    border-width: 5px;
+    margin: 5px;
+}
+
+
+.footer {
+background-color: #969696;
+height: 20px;
+width: 100%;
+bottom: 0;
+position: absolute;
+text-align: center;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 12px;
+}
