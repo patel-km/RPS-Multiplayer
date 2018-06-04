@@ -81,12 +81,12 @@ function result () {
 
 //Store variables in firebase
     //if anything changes, reflect that change in the HTML (ex: wins&losses, name, )
-    database.ref().on("value", function(snapshot){
-        var player1win = snapshot.val().player1.win;
+    // database.ref().on("value", function(snapshot){
+    //     var player1win = snapshot.val().player1.win;
     
-        var player2win = snapshot.val().player2.win;
+    //     var player2win = snapshot.val().player2.win;
     
-    });
+    // });
 
 
 
@@ -94,14 +94,19 @@ function result () {
 $(".send1").on("click", function() {
     var username = $("#p1-name").val().trim();
 
-    $("form").style.visibility = "hidden"
-    $("message").html("<p>Hi " + username + "! You are Player 1.</p>");
+    $("form").hide();
+    $(".message").html("<p>Hi " + username + "! You are Player 1.</p>");
+    console.log(username);
+
+    //in P1 box, add the username to the top of the box
+    //show three options (rock, paper, scissors)
+    //add wins and losses to the bottom of the box
 });
 
 $(".send2").on("click", function() {
     var username = $("#p2-name").val().trim();
 
-    $("form").style.visibility = "hidden"
+    $("form").hide();
     $("message").html("<p>Hi " + username + "! You are Player 1.</p>");
 });
 
