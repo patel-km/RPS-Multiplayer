@@ -22,22 +22,27 @@
 
 //Firebase
 var config = {
-    apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
-    authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
-    databaseURL: "https://fir-click-counter-7cdb9.firebaseio.com",
-    storageBucket: "fir-click-counter-7cdb9.appspot.com"
+    apiKey: "AIzaSyAtVbANEtu6mVV7zCARcIVvptmH9xJyAG0",
+    authDomain: "my-project-acd18.firebaseapp.com",
+    databaseURL: "https://my-project-acd18.firebaseio.com",
+    projectId: "my-project-acd18",
+    storageBucket: "my-project-acd18.appspot.com",
+    messagingSenderId: "152298488458"
   };
   
   firebase.initializeApp(config);
   
   var database = firebase.database();
+  var player1ref = database.ref("player1");
+  var player2ref = database.ref("player2");
+  var turnref = database.ref("turn")
   
 //GLOBAL VARIABLES________________________________________________
-    var options = {
-        rock: "Rock",
-        paper: "Paper",
-        scissors:  "Scissors",
-    }
+    var options = [
+         "Rock",
+        "Paper",
+        "Scissors"];
+    
     var player1 =  {
         win:  "Wins: ",
         lose:  "Losses: ",
@@ -49,27 +54,6 @@ var config = {
     }
 
     
-
-
-
-//FUNCTIONS___________________________________________________________
-    
-   
-// $(".option").on("click", function () {
-//     //display big in Player's box
-//     //make the visibility 0 on the other options
-// });
-
-function reset () {
-
-};
-
-function result () {
-    //reveal both player boxes on all screens
-    //print who won in the result box
-    //update wins and losses for both players
-};
-
 //SEQUENCE_____________________________________________________________
 
 //Firebase general sequence to keep in mind:
@@ -99,23 +83,93 @@ $(".send1").on("click", function() {
     console.log(username);
 
     //in P1 box, add the username to the top of the box
+    $("#p1Box").append(username);
+
     //show three options (rock, paper, scissors)
+    var rock = $("<li>").addClass("option").text("Rock");
+    var paper = $("<li>").addClass("option").text("Paper");
+    var scissors = $("<li>").addClass("option").text("Scissors");
+    
+    $("#p1options").append(rock);
+    $("#p1options").append(paper);
+    $("#p1options").append(scissors);
+
+    //shows it is my turn
+    turnref.set(0)
+    
     //add wins and losses to the bottom of the box
 });
 
+
+$(document).on("click", "li", function () {
+    console.log("li tag clicked");
+
+    var clickChoice = $(this).text();
+    console.log(clickChoice)
+
+    player1ref.child("choice").set(clickChoice);
+
+    $("#p1Box").text(clickChoice);
+
+    turnref++;
+
+});
+
+if (turnref === 1) {
+    $("#p2Box").style.border-color("");
+}
+
+
+
+
+//Player 2 click codes
 $(".send2").on("click", function() {
     var username = $("#p2-name").val().trim();
 
     $("form").hide();
-    $("message").html("<p>Hi " + username + "! You are Player 1.</p>");
+    $("message").html("<p>Hi " + username + "! You are Player 2.</p>");
+
+    $("#p2Box").append(username);
+});
+
+$(document).on("click", "li", function () {
+    console.log("li tag clicked");
+
+    var clickChoice = $(this).text();
+    console.log(clickChoice)
+
+    player2ref.child("choice").set(clickChoice);
+
+    $("#p1Box").text(clickChoice);
 });
 
 
 //Figure out whose turn it is, and send another message telling each user whether they are waiting on the other player, or if it is their move.
 
 
-//hide opponent's boxes from each other until result message displayed. 
+//hide opponent's boxes from each other until result message displayed. //active & .hide
 
 //display result message
 
 //on next click, clear result box and go back to hiding player box from each other. Game is reset.
+
+
+
+
+//FUNCTIONS___________________________________________________________
+    
+   
+// $(".option").on("click", function () {
+//     //display big in Player's box
+//     //make the visibility 0 on the other options
+// });
+
+function reset () {
+
+};
+
+function result () {
+    //reveal both player boxes on all screens
+    //print who won in the result box
+    //update wins and losses for both players
+};

@@ -21,14 +21,14 @@
   
         <div class="row">
             <div class="col-md-6">
-                    <form name="name">
+                    <form name="name" id="p1Form">
                         <input type="text" id= "p1-name" placeholder="Enter Name">
                         <button type="button" class="send1">Send</button>
                     </form>
             </div>
 
             <div class="col-md-6">
-                    <form name="name">
+                    <form name="name" id="p2Form">
                         <input type="text" id ="p2-name" placeholder="Enter Name">
                         <button type="button" class="send2">Send</button>
                     </form>
@@ -56,6 +56,7 @@
 
             <div class="col-md-4">
                 <div id="p1Box">
+                    <ul id="p1options"></ul>
                     <!-- user options
                     user move -->
                 </div>
@@ -89,7 +90,8 @@
     </div>
 
 <!-- Firebase, JS, JQ BELOW__________________________________________________________- -->
-<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="assets/javascript/app.js"></script>
     

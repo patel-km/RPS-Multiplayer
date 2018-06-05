@@ -31,6 +31,10 @@ p {
     margin: 5px;
 }
 
+#p2-name, .send2{
+    position: relative;
+    left: 200px;
+}
 
 .footer {
 background-color: #969696;
